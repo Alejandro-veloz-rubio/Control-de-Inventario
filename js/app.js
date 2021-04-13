@@ -35,21 +35,21 @@ let Inventario=function(){
         let res="";
         for(let i=0;i<this.productos.length;i++)
         {
-            res+=this.productos[i].info()+'<br>';
+          res+=this.productos[i].info()+'<br>';
         }
         return res;
 
     }
     this.eliminar=function(nombre){
-        this.encondelet=this.productos.find(elemento => elemento.id == nombre)
-        if(this.encondelet!=undefined)
-        {
-            delete this.encondelet.nombre;
-            delete this.encondelet.id;
-            delete this.encondelet.cantidad;
-            delete this.encondelet.precio;
-            alert('Se borro con exito el producto')
-        }
+        let siBorro=false
+        for (let i=0;i<this.productos.length;i++)
+        if   (this.productos[i].id==nombre){
+            this.productos.splice(i,1);
+              siBorro=true;
+              alert('Se borro con exito el Producto')
+           }
+    return siBorro;
+
         
     }
 }
